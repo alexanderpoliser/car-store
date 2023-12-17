@@ -1,0 +1,120 @@
+.container {
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 20px 0 20px;
+    mat-form-field {
+      margin: 5px;
+      max-width: 230px;
+    }
+    button {
+      margin: 20px 0 0 20px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 20px;
+  margin-left: 20px;
+
+  .part-item {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 20px;
+
+    .partnumber {
+      color: #d0d0d0;
+    }
+
+    .price {
+      font-size: 22px;
+    }
+
+    .price,
+    span {
+      color: #c62828;
+    }
+    p {
+      margin: 10px;
+    }
+
+    img {
+      max-width: 180px;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+
+  p {
+    font-size: 20px;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    color: #C62828;
+  }
+
+  .button {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .car-image {
+      margin-right: 0;
+
+      img {
+        max-width: 180px;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    form {
+      justify-content: center;
+      mat-form-field {
+        width: 350px;
+        max-width: 350px;
+      }
+      button {
+        margin: 0 0 20px 0;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+  .card {
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 280px) {
+    .card {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 260px);
+    }
+}

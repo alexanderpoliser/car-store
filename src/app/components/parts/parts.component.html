@@ -1,0 +1,98 @@
+<div class="container">
+  <form
+    (ngSubmit)="
+      filterForm.form.valid &&
+        filterParts(
+          partNumber.value,
+          category.value,
+          model.value,
+          year.value,
+          price.value
+        )
+    "
+    class="example-form"
+    #filterForm="ngForm"
+  >
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Partnumber"
+        name="partNumber"
+        #partNumber
+        ngModel
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <select matNativeControl name="Category" #category ngModel>
+        <option value="" selected></option>
+        <option value="turbochargers">Turbochargers</option>
+        <option value="intakes">Intakes</option>
+        <option value="intercoolers">Intercoolers</option>
+        <option value="tires">Tires</option>
+        <option value="springs">Springs</option>
+        <option value="wheels">Wheels</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Model"
+        name="model"
+        #model
+        ngModel
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        placeholder="Year"
+        name="year"
+        #year
+        ngModel
+        [min]="1950"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        placeholder="Price"
+        name="price"
+        #price
+        ngModel
+        [min]="0"
+      />
+    </mat-form-field>
+    <button mat-mini-fab color="primary" type="submit">
+      <mat-icon>search</mat-icon>
+    </button>
+  </form>
+</div>
+
+<div class="card">
+  <div class="part-item" *ngFor="let part of parts$ | async">
+    <img [src]="part.image" alt="{{ part.category }} {{ part.model }}" />
+    <p class="partnumber">Partnumber: {{ part.partNumber }}</p>
+    <p><span>Category: </span> {{ part.category }}</p>
+    <p><span>Model: </span> {{ part.model }}</p>
+    <p><span>Year: </span> {{ part.year }}</p>
+    <p class="price">$ {{ part.price }}</p>
+    <button mat-fab extended color="primary">
+      <mat-icon>shopping_cart</mat-icon>
+      Buy now
+    </button>
+  </div>
+</div>
+
+<div class="not-found" *ngIf="!(parts$ | async)?.length && !partFound">
+  <p>Sorry, we couldn't find anything with the selected filters.</p>
+  <div class="button">
+    <button mat-raised-button color="primary" (click)="loadParts()">
+      Show all itens
+    </button>
+  </div>
+</div>
