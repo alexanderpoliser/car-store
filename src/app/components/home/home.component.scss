@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+
+    .text {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        .button {
+            display: flex;
+            justify-content: center;
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .text .all {
+        color: #C62828;
+    }
+
+    .car-image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            display: flex;
+            align-items: center;
+            max-width: 700px;
+            margin: auto;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            min-height: 640px;
+            z-index: 1;
+            position: relative;
+        }
+    }
+}
