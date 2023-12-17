@@ -50,3 +50,20 @@ form {
     flex-direction: column;
   }
 }
+
+@media (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    .car-image {
+        margin-right: 0;
+    
+        img {
+          max-width: 350px;
+          width: 100%;
+          height: auto;
+        }
+      }
+  }
+}

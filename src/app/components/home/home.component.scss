@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px;
+    margin: 60px;
 
     .text {
         display: flex;
@@ -35,9 +35,23 @@
             width: 100%;
             height: auto;
             object-fit: contain;
-            min-height: 640px;
-            z-index: 1;
-            position: relative;
         }
     }
 }
+
+@media (max-width: 600px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+  
+      .car-image {
+          margin: 25px 0 0 0;
+      
+          img {
+            max-width: 350px;
+            width: 100%;
+            height: auto;
+          }
+        }
+    }
+  }

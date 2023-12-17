@@ -33,19 +33,19 @@ export class CarsService {
   }
   
   filterCars(brand: string, model: string, year: number): Observable<Car[]> {
-    console.log(`Received values - Brand: ${brand}, Model: ${model}, Year: ${year}`);
     return this.getCars().pipe(
       map(cars => {
         const filteredCars = cars.filter(car => {
-          const foundByBrand = brand.trim().length && car.brand.toLowerCase().includes(brand.trim().toLowerCase());
-          const foundByModel = model.trim().length && car.model.toLowerCase().includes(model.trim().toLowerCase());
-          const foundByYear = year && car.year === year;
-          return foundByBrand || foundByModel || foundByYear;
+          const foundByBrand = brand.trim().length ? car.brand.toLowerCase().includes(brand.trim().toLowerCase()) : true;
+          const foundByModel = model.trim().length ? car.model.toLowerCase().includes(model.trim().toLowerCase()) : true;
+          const foundByYear = year ? car.year === year : true;
+          return foundByBrand && foundByModel && foundByYear;
         });
         return filteredCars;
       })
     );
   }
+
   
   
   
