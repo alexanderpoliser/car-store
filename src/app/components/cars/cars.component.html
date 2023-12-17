@@ -1,0 +1,62 @@
+<div class="container">
+  <form
+    (ngSubmit)="
+      filterForm.form.valid && filterCars(brand.value, model.value, year.value)
+    "
+    class="example-form"
+    #filterForm="ngForm"
+  >
+    <mat-form-field>
+      <mat-label>Brand</mat-label>
+      <select matNativeControl name="brand" #brand ngModel>
+        <option value="" selected></option>
+        <option value="bmw">BMW</option>
+        <option value="ford">Ford</option>
+        <option value="honda">Ford</option>
+        <option value="nissan">Nissan</option>
+        <option value="porsche">Porsche</option>
+        <option value="toyota">Toyota</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Model"
+        name="model"
+        #model
+        ngModel
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        placeholder="Year"
+        name="year"
+        #year
+        ngModel
+        [min]="1950"
+      />
+    </mat-form-field>
+    <button mat-mini-fab color="primary" type="submit">
+      <mat-icon>search</mat-icon>
+    </button>
+  </form>
+</div>
+
+<div class="card">
+  <div class="car-item" *ngFor="let car of cars$ | async">
+    <img [src]="car.image" alt="{{ car.brand }} {{ car.model }}" />
+    <p>{{ car.brand }} {{ car.model }} ({{ car.year }})</p>
+  </div>
+</div>
+
+<div class="not-found" *ngIf="!(cars$ | async)?.length && !carFound">
+  <p>Sorry, we couldn't find anything with the selected filters.</p>
+  <div class="button">
+    <button mat-raised-button color="primary" (click)="loadCars()">
+      Show all itens
+    </button>
+  </div>
+</div>
