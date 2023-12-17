@@ -1,37 +1,61 @@
 mat-toolbar {
+  display: flex;
+
+  a {
+    margin: 15px;
+    text-decoration: none;
+  }
+
+  a:hover {
+    font-weight: bold;
+    color: #c62828;
+    text-decoration: underline;
+  }
+
+  .logo {
     display: flex;
-    .logo {
-        display: flex;
-        margin-left: 15px;
-    }
-    .logo h1 {
-        font-weight: bold;
-        font-size: 32px;
-      }
-      
-      .logo h1 .store {
-        color: #C62828;
-      }
-      
-      .logo h1 .car {
-        color: black;
-      }
+    margin-left: 15px;
+  }
+  .logo h1 {
+    font-weight: bold;
+    font-size: 32px;
+  }
 
-    .navigation {
-        display: flex;
-        justify-content: center;
-        margin: 5px;
-        padding-left: 20px;
+  .logo h1 .store {
+    color: #c62828;
+  }
 
-        a {
-            margin: 15px;
-            text-decoration: none;
-        }
+  .logo h1 .car {
+    color: black;
+  }
 
-        a:hover {
-            font-weight: bold;
-            color: #C62828;
-            text-decoration: underline;
-        }
-    }
+  .navigation {
+    justify-content: center;
+    margin: 5px;
+    padding-left: 20px;
+  }
+
+  .menu {
+    margin-left: 35px;
+  }
+}
+
+/* Estilos para telas grandes (notebooks, computadores) */
+@media screen and (min-width: 768px) {
+  .navigation {
+    display: flex;
+  }
+  .menu {
+    display: none;
+  }
+}
+
+/* Estilos para telas pequenas (dispositivos móveis) */
+@media screen and (max-width: 767px) {
+  .navigation {
+    display: none;
+  }
+  .menu {
+    display: block;
+  }
 }

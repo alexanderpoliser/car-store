@@ -1,12 +1,25 @@
 <mat-toolbar color="secondary">
     <div class="logo">
-        <h1>Car<span class="store"> Store</span></h1>
+      <h1>Car<span class="store"> Store</span></h1>
     </div>
+    
     <div class="navigation">
-        <a mat-button href="home">Home</a>
-        <a mat-button href="cars">Cars</a>
-        <a mat-button href="about">About us</a>
-        <a mat-button href="parts">Parts</a>
+      <a mat-button href="home">Home</a>
+      <a mat-button href="cars">Cars</a>
+      <a mat-button href="about">About us</a>
+      <a mat-button href="parts">Parts</a>
     </div>
-
-</mat-toolbar>
+  
+    <div class="menu">
+      <button mat-icon-button [matMenuTriggerFor]="menu" color="primary">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <a href="home" mat-menu-item>Home</a>
+        <a href="cars" mat-menu-item>Cars</a>
+        <a href="about" mat-menu-item>About</a>
+        <a href="parts" mat-menu-item>Parts</a>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+  
