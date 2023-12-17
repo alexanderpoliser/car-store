@@ -17,6 +17,10 @@ export const APP_ROUTES: Route[] = [
             {
                 path: 'cars',
                 loadChildren: () => import("./components/cars/cars-route").then((m) => m.carsRoute),
+            },
+            {
+                path: 'about',
+                loadChildren: () => import("./components/about/about-route").then((m) => m.aboutRoute),
             }
         ]
     },
