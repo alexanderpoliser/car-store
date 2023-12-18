@@ -1,0 +1,67 @@
+.container {
+  margin-top: 70px;
+  background-color: #0f0f0f;
+  footer {
+    .store {
+      color: #c62828;
+    }
+
+    h1,
+    h3 {
+      color: #fff;
+    }
+
+    a {
+      color: #9c9c9c;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    .logo {
+      padding: 30px;
+
+      .icons {
+        cursor: pointer;
+        
+        i {
+          color: #9c9c9c;
+          font-size: 25px;
+        }
+        i:hover {
+          color: #c62828;
+        }
+
+        .icon1, .icon2 {
+            margin-right: 30px;
+        }
+
+      }
+    }
+    .content {
+      display: flex;
+      justify-content: space-evenly;
+
+      .page,
+      .legal,
+      .contacts {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .copyright {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 25px;
+
+      p {
+        color: #fff;
+        font-size: 18px;
+      }
+    }
+  }
+}
